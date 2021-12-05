@@ -93,3 +93,20 @@ body {
   animation-iteration-count: infinite;
 }
 
+
+
+
+/* Beginning to think about animations for curtains. */
+
+@keyframes curtains-width {
+  to {
+    width: 50%;
+  }
+}
+
+@keyframes curtain-position-right {
+  to {
+    right: 50%;
+  }
+}
+
