@@ -15,19 +15,40 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const curtains_target = document.getElementById(id_target_curtains);
 
-        let curtains_count = 0;
-        let curtains_max = 5;
-        let interval = 0;
-        
+        let curtains_count = 5;
+
+        const animationEndEventHandler = (isAnimationRunningForwards, index, count) => {
+
+            let evtFirstRun = true;
+            let evtForwards = isAnimationRunningForwards;
+                
+            return (target) => {
+                evtForwards = !evtForwards;
+                const timeout = 1000 * 
+                    (
+                        evtFirstRun ? index :
+                        (
+                            evtForwards ? (2 * index) + 1 : (2 * (count - index - 1)) + 1
+                        )
+                    );
+                evtFirstRun = false;
+                if (timeout > 0) {
+                    target.style.setProperty('animation-play-state', 'paused');
+                    setTimeout(() => {
+                        target.style.setProperty('animation-play-state', 'running');
+                    }, timeout);
+                }
+            };
+
+        };
+
         if (curtains_target !== null) {
 
             const curtains_container = document.createElement('div');
             curtains_container.classList.add('curtains-container');
             curtains_target.appendChild(curtains_container);
 
-            // Set up timer to add on child elements.
-
-            interval = setInterval(() => {
+            for (var i = 0; i < curtains_count; i++) {
 
                 const
                     curtain_left = document.createElement('div'),
@@ -36,18 +57,22 @@ document.addEventListener('DOMContentLoaded', () => {
                 curtain_left.classList.add('curtain', 'curtain-left');
                 curtain_right.classList.add('curtain', 'curtain-right');
 
+                const isAnimationRunningForwards = false;
+
+                const transitionEventHandlerLeft = animationEndEventHandler(isAnimationRunningForwards, i, curtains_count);
+                const transitionEventHandlerRight = animationEndEventHandler(isAnimationRunningForwards, i, curtains_count);
+
+                curtain_left.addEventListener('animationiteration', (event) => { transitionEventHandlerLeft(event.target); });
+                curtain_right.addEventListener('animationiteration', (event) => { transitionEventHandlerRight(event.target); });
+                
+                transitionEventHandlerLeft(curtain_left);
+                transitionEventHandlerRight(curtain_right);
+
                 curtains_container.appendChild(curtain_left);
                 curtains_container.appendChild(curtain_right);
-                
-                curtains_count++;
 
-                if (curtains_count === curtains_max) {
-                    clearInterval(interval);
-                    interval = 0;
-                }
+            }
 
-            }, 1000);
-            
         }
 
     });
