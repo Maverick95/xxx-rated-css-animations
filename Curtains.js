@@ -1,9 +1,9 @@
 document.addEventListener('DOMContentLoaded', () => {
 
-    const curtains_count = 5, cycle_count = 1;
+    const curtains_count = 3, cycle_count = 1;
 
     const curtains_toggle = document.getElementById('curtains-activate');
-    const curtains_target = document.getElementById('curtains-target');
+    const curtains_target = document.getElementById('curtains-container');
 
     const toggleCurtainsStatus = (() => {
         let toggle_curtains = false;
@@ -48,10 +48,6 @@ document.addEventListener('DOMContentLoaded', () => {
         };
     };
 
-    const curtains_container = document.createElement('div');
-    curtains_container.classList.add('curtains-container');
-    curtains_target.appendChild(curtains_container);
-
     for (var i = 0; i < curtains_count; i++) {
 
         for (var side of ['left', 'right']) {
@@ -60,13 +56,13 @@ document.addEventListener('DOMContentLoaded', () => {
             const transitionHandler = createTransitionEventHandler(i);
             curtain.addEventListener('animationiteration', transitionHandler);
             curtain.style.setProperty('animation-play-state', 'paused');
-            curtains_container.appendChild(curtain);
+            curtains_target.appendChild(curtain);
         }
     }
 
     curtains_toggle.addEventListener('click', () => {
         toggleCurtainsStatus();
-        const curtains = curtains_container.getElementsByClassName('curtain');
+        const curtains = curtains_target.getElementsByClassName('curtain');
         for (var c of curtains) {
             c.dispatchEvent(new Event('animationiteration'));
         }

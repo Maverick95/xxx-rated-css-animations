@@ -93,20 +93,17 @@ body {
   animation-iteration-count: infinite;
 }
 
-
-
-
-/* Beginning to think about animations for curtains. */
-
-@keyframes curtains-width {
-  to {
-    width: 50%;
-  }
+:root {
+  --saucy-height: 200px;
 }
 
-@keyframes curtain-position-right {
-  to {
-    right: 50%;
-  }
+#saucy-feature {
+  position: relative;
+  width: 100%;
+  height: var(--saucy-height);
+}
+
+#saucy-act {
+  z-index: 1;
 }
 
