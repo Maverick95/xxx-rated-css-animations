@@ -1,11 +1,8 @@
-:root {
-    --curtains-height: 200px;
-}
-
-.curtains-container {
-    position: relative;
+#curtains-container {
+    position: absolute;
     width: 100%;
-    height: var(--curtains-height);
+    height: 100%;
+    z-index: 5;
 }
 
 .curtain {
@@ -22,7 +19,7 @@
 
 @keyframes animation-curtain {
     from {
-        width: 0;
+        width: 30px;
     }
     to {
         width: 50%;
