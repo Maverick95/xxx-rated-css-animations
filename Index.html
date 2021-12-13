@@ -5,29 +5,59 @@
   <meta charset="utf-8" />
   <title>XXX Rated CSS Animations</title>
   <link rel="stylesheet" type="text/css" href="./Index.css" />
-  <link rel="stylesheet" type="text/css" href="./Curtains.css" />
+  <link rel="stylesheet" type="text/css" href="./Neon/Neon.css" />
+  <link rel="stylesheet" type="text/css" href="./Curtains/Curtains.css" />
   <script src="./Index.js"></script>
-  <script src="./Curtains.js"></script>
+  <script src="./Curtains/Curtains.js"></script>
 </head>
 
 <body>
 
-  <div id="feature-neon-sign">
-    <div class="neon">
+  <!-- Neon start -->
+
+  <div id="neon-container">
+    <div class="neon-static-container">
+      <p class="red neon-skew-left">Animations</p>
+      <p class="white neon-skew-left">Shapes</p>
+      <p class="blue neon-skew-left">Gradients</p>
+    </div>
+    <div class="neon-fluid-container">
       <div class="container red">
         <div class="container white">
           <div class="container blue">
-            <p class="text">
-              <span class="red spinner-generator">XXX</span>
-              <span class="white spinner-generator">Rated</span>
-              <span class="blue spinner-generator">Animations</span>
-            </p>
+            <p><span class="red">XXX</span> <span class="white">Rated</span> <span class="blue">Animations</span></p>
           </div>
         </div>
       </div>
     </div>
+    <div class="neon-static-container">
+      <p class="blue neon-skew-right">Offsets</p>
+      <p class="white neon-skew-right">Transitions</p>
+      <p class="red neon-skew-right">Stacking Contexts</p>
+    </div>
   </div>
 
+  <!-- Neon end -->
+
+  <div id="feature-curtains" style="margin: 1rem; width: calc(100% - 2rem);">
+    <button id="curtains-activate" style="width: 100%; padding: 1rem;" type="button">
+      This button causes the saucy CSS act to change!
+    </button>
+    <div id="saucy-feature">
+
+      <!-- Curtains start -->
+
+      <div id="curtains-container"></div>
+      <div id="saucy-act">
+        <p style="color: white">This is a test to demonstrate the wrapping feature of the curtains.</p>
+      </div>
+
+      <!--Curtains end -->
+
+    </div>
+  </div>
+
+  <!--
   <div id="feature-colour-wheel">
     <button id="spinner-toggle" style="width: calc(100% - 2rem); margin: 1rem; padding: 1rem;" type="button">
       This button adds another circle onto the colour wheel below. Have fun!
@@ -36,21 +66,7 @@
       <div id="spinner-target" class="spinner-target"></div>
     </div>
   </div>
-
-  <!--Curtains functionality for animation peep show-->
-
-  <div id="feature-curtains" style="margin: 1rem; width: calc(100% - 2rem);">
-    <button id="curtains-activate" style="width: 100%; padding: 1rem;" type="button">
-      This button causes the saucy CSS act to change!
-    </button>
-    <div id="saucy-feature">
-      <div id="curtains-container">
-      </div>
-      <div id="saucy-act">
-        <p style="color: white">This is a test to demonstrate the wrapping feature of the curtains.</p>
-      </div>
-    </div>
-  </div>
+  -->
 
 </body>
 

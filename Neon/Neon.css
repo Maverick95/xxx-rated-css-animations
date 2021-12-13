@@ -1,0 +1,68 @@
+@keyframes neon-fluid {
+    from { opacity: 20% }
+    to { opacity: 100% }
+}
+
+@keyframes neon-static {
+    from { opacity: 0% }
+    to { opacity: 100% }
+}
+
+#neon-container {
+    display: flex;
+    font-family: "Comic Sans MS";
+    font-weight: bold;
+    font-style: italic;
+    text-align: center;
+}
+
+#neon-container .neon-static-container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    font-size: 1rem;
+}
+
+#neon-container .neon-static-container * {
+    animation: 2s neon-static alternate infinite steps(2, jump-none);
+}
+
+#neon-container .neon-skew-left {
+    transform: rotate(10deg);
+}
+
+#neon-container .neon-skew-right {
+    transform: rotate(-10deg);
+}
+
+#neon-container .neon-fluid-container {
+    flex: 5;
+    font-size: 3rem;
+}
+
+#neon-container .neon-fluid-container * {
+    animation: 2s neon-fluid alternate infinite;
+}
+
+#neon-container .container {
+    margin: 1rem;
+    border-width: 0.5rem;
+    border-style: solid;
+    border-radius: 0.5rem;
+}
+
+#neon-container .red {
+    border-color: #ff8888;
+    color: #ff8888;
+}
+
+#neon-container .white {
+    border-color: white;
+    color: white;
+}
+
+#neon-container .blue {
+    border-color: #8888ff;
+    color: #8888ff;
+}
