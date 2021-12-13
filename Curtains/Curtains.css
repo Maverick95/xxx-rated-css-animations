@@ -1,3 +1,8 @@
+@keyframes animation-curtain {
+    from { width: 30px; }
+    to { width: 50%; }
+}
+
 #curtains-container {
     position: absolute;
     width: 100%;
@@ -5,34 +10,21 @@
     z-index: 5;
 }
 
-.curtain {
+#curtains-container .curtain {
     position: absolute;
-    animation-name: animation-curtain;
-    animation-timing-function: linear;
-    animation-duration: 3s;
-    animation-direction: alternate;
-    animation-iteration-count: infinite;
+    animation: 3s linear animation-curtain alternate infinite;
     border: 1px solid black;
     background-size: 100px;
     height: 100%;
 }
 
-@keyframes animation-curtain {
-    from {
-        width: 30px;
-    }
-    to {
-        width: 50%;
-    }
-}
-
-.curtain-left {
+#curtains-container .curtain-left {
     left: 0;
     background-image: linear-gradient(to left, #aa0000, 35%, black, 50%, #aa0000, 70%, black, 90%, #aa0000);
     background-position: right;
 }
 
-.curtain-right {
+#curtains-container .curtain-right {
     right: 0;
     background-image: linear-gradient(to right, #aa0000, 35%, black, 50%, #aa0000, 70%, black, 90%, #aa0000);
     background-position: left;

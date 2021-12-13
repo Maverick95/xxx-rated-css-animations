@@ -8,63 +8,7 @@ body {
   background-color: black;
 }
 
-@keyframes neon {
-  from {
-    opacity: 20%
-  }
-  to {
-    opacity: 100%
-  }
-}
 
-.neon * {
-  animation-name: neon;
-  animation-duration: 2s;
-  animation-direction: alternate;
-  animation-iteration-count: infinite;
-  margin: 1rem;
-}
-
-.container {
-  border-width: 0.5rem;
-  border-style: solid;
-  border-radius: 0.5rem;
-}
-
-.text {
-  font-family: "Comic Sans MS";
-  font-weight: bold;
-  font-size: 3rem;
-  font-style: italic;
-  text-align: center;
-}
-
-.red {
-  border-color: #ff8888;
-  color: #ff8888;
-}
-
-.white {
-  border-color: white;
-  color: white;
-}
-
-.blue {
-  border-color: #8888ff;
-  color: #8888ff;
-}
-
-.bg-red {
-  background-color: #ff8888;
-}
-
-.bg-white {
-  background-color: white;
-}
-
-.bg-blue {
-  background-color: #8888ff;
-}
 
 @keyframes spinner-anchor-travel {
   to {
