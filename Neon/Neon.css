@@ -4,8 +4,8 @@
 }
 
 @keyframes neon-static {
-    from { opacity: 0% }
-    to { opacity: 100% }
+    from { opacity: 100% }
+    to { opacity: 30%; color: grey; }
 }
 
 #neon-container {
@@ -25,7 +25,7 @@
 }
 
 #neon-container .neon-static-container * {
-    animation: 2s neon-static alternate infinite steps(2, jump-none);
+    animation: 3s neon-static alternate infinite steps(2, jump-none);
 }
 
 #neon-container .neon-skew-left {
