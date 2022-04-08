@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
         };
     })();
 
-    let curtains_finished = 0;
+    let curtains_closed = 0, curtains_finished = 0;
 
     const createTransitionEventHandler = (index) => {
 
@@ -30,10 +30,10 @@ document.addEventListener('DOMContentLoaded', () => {
                 return index;
             }
             else if (animations % 2) {
-                // Curtain has drawn again to leave stage open.
+                // Curtain is closed covering stage.
                 return (2 * (curtains_count - index - 1)) + 1;
             }
-            // Curtain is closed covering stage.
+            // Curtain has drawn again to leave stage open.
             return (2 * index) + 1;
         };
 
