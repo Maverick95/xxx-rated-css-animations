@@ -3,7 +3,7 @@ class MyFirstWebComponent extends HTMLElement {
     super();
     this.attachShadow({mode: 'open'});
     const paragraph = document.createElement('p');
-    paragraph.textContent = 'Hello! I am your first web component!';
+    paragraph.textContent = 'Hello! I am your number one web component!';
     this.shadowRoot.appendChild(paragraph);
   }
 };
