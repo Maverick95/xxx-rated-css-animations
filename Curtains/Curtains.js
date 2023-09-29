@@ -1,6 +1,9 @@
 document.addEventListener('DOMContentLoaded', () => {
 
-    const curtains_count = 3, cycle_count = 1;
+    
+    const curtains_sets = 3, cycle_count = 1;
+
+    const curtains_count = 2 * curtains_sets;
 
     const curtains_toggle = document.getElementById('curtains-activate');
     const curtains_target = document.getElementById('curtains-container');
@@ -31,7 +34,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
             else if (animations % 2) {
                 // Curtain is closed covering stage.
-                return (2 * (curtains_count - index - 1)) + 1;
+                return curtains_count - (2 * (index + 1)) + 1;
             }
             // Curtain has drawn again to leave stage open.
             return (2 * index) + 1;
@@ -42,12 +45,18 @@ document.addEventListener('DOMContentLoaded', () => {
             if (animations === (2 * cycle_count)) {
                 event.target.style.setProperty('animation-play-state', 'paused');
                 animations = -1;
-                if (++curtains_finished === (2 * curtains_count)) {
+                if (++curtains_finished === curtains_count) {
                     toggleCurtainsStatus();
                     curtains_finished = 0;
                 }
             }
             else {
+                if (animations % 2) {
+                    if (++curtains_closed === curtains_count) {
+                        // Active code in here.
+                        curtains_closed = 0;
+                    }
+                }
                 const timeout = 1000 * getAnimationDelaySeconds();
                 event.target.style.setProperty('animation-play-state', 'paused');
                 setTimeout(() => {
@@ -58,7 +67,7 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     // Lower-index curtains are behind higher-index curtains.
-    for (var i = 0; i < curtains_count; i++) {
+    for (var i = 0; i < curtains_sets; i++) {
         for (var side of ['left', 'right']) {
             const curtain = document.createElement('div');
             curtain.id = `curtain-${side}-${i}`;
