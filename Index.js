@@ -14,26 +14,4 @@ document.addEventListener('DOMContentLoaded', () => {
       document.getElementById(id_target)?.appendChild(spinner);
   });
 
-  
-  const id_toggle_curtains = 'curtains-toggle';
-  let toggle_curtains = false;
-  const id_target_curtains = 'curtains-target';
-
-  document.getElementById(id_toggle_curtains)?.addEventListener('click', () => {
-
-    if (!toggle_curtains) {
-      toggle_curtains = true;
-    }
-
-    const curtains = document.createElement('div');
-
-    
-
-
-
-      
-
-
-  });
-
 });
